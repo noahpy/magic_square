@@ -130,7 +130,7 @@ def get_random_coefficients(magic_number: int, random_state: np.random.RandomSta
     # Attempt to apply random valid steps to reach a valid state or improve it.
     # We will apply a fixed number of steps *if* they result in a valid configuration.
     # This helps explore the valid state space from a starting point.
-    num_initial_steps_to_attempt = 500
+    num_initial_steps_to_attempt = 1000
 
     current_valid_coeffs = np.array(coefficients, dtype=int)
 

@@ -145,3 +145,49 @@ def magic_coverage_cost(coefficients: np.ndarray, wish_numbers: List[int],
 
     return total_cost
 
+def magic_coverage_duplicate_cost(coefficients: np.ndarray, wish_numbers: List[int],
+                                    magic_number: int) -> float:
+    """
+    Cost function for the magic square problem.
+    Checks how much of the wish numbers are covered by the magic square.
+    For every wish number that is not covered, the squared distance to the closest 
+    existing entry + square root of the magic number is added to the cost.
+    For every duplicate the square of that entry is added to the cost.
+
+    Args:
+        coefficients (np.ndarray): The 7D integer coefficient vector.
+        wish_numbers (List[int]): A list of target numbers for square entries.
+        magic_number (int): The target magic sum. Required by check_coefficients.
+
+    Returns:
+        float: The total cost (sum of squared minimum distances),
+               or float('inf') if coefficients are invalid.
+    """
+    # First, check if the coefficients produce a valid magic square with the target magic number
+    # Pass the target magic number to the validity check.
+    if not check_coefficients(coefficients, magic_number):
+        # Return a very high cost for invalid coefficients
+        return float('inf')
+
+    # Calculate the magic square (validity confirmed by check_coefficients)
+    square = calc_magic_square(coefficients)
+
+    total_cost = 0
+    flat_square = square.flatten()
+
+    for wish in wish_numbers:
+        if wish not in flat_square:
+            min_dist_sq = float('inf')
+            for entry in flat_square:
+                min_dist_sq = min(min_dist_sq, (entry - wish)**2)
+            total_cost += min_dist_sq + (magic_number - wish)
+
+    unique, counts = np.unique(flat_square, return_counts=True)
+    uq_dict = dict(zip(unique, counts))
+    for key in uq_dict.keys():
+        if uq_dict[key] > 1:
+            total_cost += magic_number * uq_dict[key]
+
+    return total_cost
+
+
