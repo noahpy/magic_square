@@ -14,11 +14,11 @@ from magic_dpso_cost_functions import (
 if __name__ == "__main__":
 
     # --- 1. Define the problem specifics ---
-    dpso_n_particles = 200       # Number of particles
+    dpso_n_particles = 700       # Number of particles
     # Maximum iterations (can be high, convergence might stop it early)
     dpso_max_iterations = 1000
     magic_number = 90           # Target magic sum for the square
-    wish_numbers = [32, 2, 6, 10, 30, 25, 9, 11, 5, 28, 3, 7, 69, 35, 34]
+    wish_numbers = [32, 10, 30, 25, 9, 11, 5, 28, 3, 7, 40]
 
     # --- 2. Choose the Cost Function ---
     # You can define other cost functions in magic_dpso_cost_functions.py
@@ -123,6 +123,12 @@ if __name__ == "__main__":
                   len(wish_numbers)} or {coverage:.2f}%")
             if len(not_included) > 0:
                 print(f"Missing wish numbers: {not_included}")
+
+            new_numbers = []
+            for n in flat_square:
+                if n not in wish_numbers:
+                    new_numbers.append(int(n))  # Convert to int before appending (if needed, e.g., for 2D arrayn)
+            print(f"New numbers: {new_numbers}")
 
             # print("\nMagic Square Entries and their cost contribution (squared distance to closest wish number):")
             # flat_square = square.flatten()

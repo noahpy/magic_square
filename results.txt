@@ -112,3 +112,84 @@ Resulting Magic Square:
 
 Coverage of wish numbers: 10 out of 12 or 83.33%
 Missing wish numbers: [32, 25]
+
+##########################################################################
+
+--- Magic Square DPSO Solver ---
+Magic Number Target: 90
+Wish Numbers: [32, 2, 6, 10, 30, 25, 9, 11, 5, 28, 3, 7]
+Number of Particles: 200
+Maximum Iterations: 1000
+Selected Cost Function: magic_coverage_duplicate_cost
+Step Combination Enabled: True
+  Number of Top Steps for Combination: 10
+Convergence Threshold (iterations): 200
+Convergence Tolerance (position change): 1e-06
+------------------------------
+Swarm initialized with 200 particles.
+Initial Global Best Cost: 310.000000
+------------------------------
+Starting DPSO optimization for up to 1000 iterations...
+Iteration 1/1000, Current Gbest Cost: 310.000000, Convergence Count: 1
+Iteration 100/1000, Current Gbest Cost: 148.000000, Convergence Count: 78
+Iteration 200/1000, Current Gbest Cost: 80.000000, Convergence Count: 49
+Iteration 300/1000, Current Gbest Cost: 80.000000, Convergence Count: 149
+
+Converged! Gbest position did not change significantly for 200 iterations.
+Optimization finished.
+
+--- Optimization Results ---
+Global Best Coefficient Vector Found: [42  6  8 -1 22 10  3]
+Global Best Cost Found: 80.000000
+Coefficient Vector is Valid: True
+Magic Square Sum (if valid): 90
+
+Resulting Magic Square:
+[[ 3  5 52 30]
+ [32 50  2  6]
+ [ 7 10 28 45]
+ [48 25  8  9]]
+
+Coverage of wish numbers: 11 out of 12 or 91.67%
+Missing wish numbers: [11]
+New numbers: [52, 50, 45, 48, 8]
+
+##########################################################################
+
+--- Magic Square DPSO Solver ---
+Magic Number Target: 90
+Wish Numbers: [32, 2, 6, 10, 30, 25, 9, 11, 5, 28, 3, 7]
+Number of Particles: 700
+Maximum Iterations: 1000
+Selected Cost Function: magic_coverage_duplicate_cost
+Step Combination Enabled: True
+  Number of Top Steps for Combination: 10
+Convergence Threshold (iterations): 200
+Convergence Tolerance (position change): 1e-06
+------------------------------
+Swarm initialized with 700 particles.
+Initial Global Best Cost: 317.000000
+------------------------------
+Starting DPSO optimization for up to 1000 iterations...
+Iteration 1/1000, Current Gbest Cost: 296.000000, Convergence Count: 0
+Iteration 100/1000, Current Gbest Cost: 64.000000, Convergence Count: 70
+Iteration 200/1000, Current Gbest Cost: 64.000000, Convergence Count: 170
+
+Converged! Gbest position did not change significantly for 200 iterations.
+Optimization finished.
+
+--- Optimization Results ---
+Global Best Coefficient Vector Found: [43  6 28  4 -3  7  5]
+Global Best Cost Found: 64.000000
+Coefficient Vector is Valid: True
+Magic Square Sum (if valid): 90
+
+Resulting Magic Square:
+[[ 5 10 50 25]
+ [ 4 71  9  6]
+ [32  7  3 48]
+ [49  2 28 11]]
+
+Coverage of wish numbers: 11 out of 12 or 91.67%
+Missing wish numbers: [30]
+New numbers: [50, 4, 71, 48, 49]

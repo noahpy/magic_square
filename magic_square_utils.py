@@ -123,7 +123,8 @@ def get_random_coefficients(magic_number: int, random_state: np.random.RandomSta
     coefficients = np.array([magic_number // n_dimensions for _ in range(n_dimensions)], dtype=int)
     remainder = magic_number % n_dimensions
     if n_dimensions > 0:  # Avoid division by zero
-        coefficients[0] += remainder  # Add remainder to the first coefficient
+        random_index = rnd.choice(n_dimensions)
+        coefficients[random_index] += remainder
     # Handle negative magic numbers if necessary (though magic squares usually have positive entries)
     # This initial distribution might need adjustment depending on expected coefficient ranges.
 
