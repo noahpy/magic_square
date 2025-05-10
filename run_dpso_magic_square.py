@@ -14,11 +14,11 @@ from magic_dpso_cost_functions import (
 if __name__ == "__main__":
 
     # --- 1. Define the problem specifics ---
-    dpso_n_particles = 700       # Number of particles
+    dpso_n_particles = 200       # Number of particles
     # Maximum iterations (can be high, convergence might stop it early)
     dpso_max_iterations = 1000
-    magic_number = 90           # Target magic sum for the square
-    wish_numbers = [32, 10, 30, 25, 9, 11, 5, 28, 3, 7, 40]
+    magic_number = 60           # Target magic sum for the square
+    wish_numbers = [24, 30, 16, 8, 12]
 
     # --- 2. Choose the Cost Function ---
     # You can define other cost functions in magic_dpso_cost_functions.py
